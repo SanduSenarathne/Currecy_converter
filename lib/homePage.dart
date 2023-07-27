@@ -6,7 +6,7 @@ import 'function.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final TextEditingController usdController = TextEditingController();
-  //final CurrencyConverter currencyConverter = CurrencyConverter();
+  final TextEditingController slrController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +91,7 @@ class HomePage extends StatelessWidget {
                   child: Container(
                     color: Colors.black,
                     child: TextField(
+                      controller: slrController,
                       inputFormatters: [
                         FilteringTextInputFormatter.allow(
                           RegExp(r'^\d+\.?\d{0,2}?$'),
@@ -128,14 +129,7 @@ class HomePage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    /*double usdValue =
-                        double.tryParse(usdController.text) ?? 0.0;
-                    currencyConverter.convertToLKR(usdValue);
-                    Get.snackbar('Result',
-                        'USD value multiplied: ${currencyConverter.result.toStringAsFixed(2)}');*/
-                    String usdValue = usdController.text;
-                    //print('USD value: $usdValue');
-                    CurrencyConverter.convertToLKR(usdValue);
+                    CurrencyConverter.convertToLKR(usdController.text);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
@@ -150,7 +144,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(width: 16),
                 ElevatedButton(
                   onPressed: () {
-                    print('values');
+                    CurrencyConverter.convertToUSD(slrController.text);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
