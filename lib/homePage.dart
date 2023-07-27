@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'function.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final TextEditingController usdController = TextEditingController();
+  //final CurrencyConverter currencyConverter = CurrencyConverter();
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +105,6 @@ class HomePage extends StatelessWidget {
                         fillColor: Colors.black,
                       ),
                       style: TextStyle(color: Colors.white),
-                      // Implement additional text field properties as needed
                     ),
                   ),
                 ),
@@ -127,8 +128,14 @@ class HomePage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    /*double usdValue =
+                        double.tryParse(usdController.text) ?? 0.0;
+                    currencyConverter.convertToLKR(usdValue);
+                    Get.snackbar('Result',
+                        'USD value multiplied: ${currencyConverter.result.toStringAsFixed(2)}');*/
                     String usdValue = usdController.text;
-                    print('USD value: $usdValue');
+                    //print('USD value: $usdValue');
+                    CurrencyConverter.convertToLKR(usdValue);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
