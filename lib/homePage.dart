@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -46,6 +47,13 @@ class HomePage extends StatelessWidget {
                   child: Container(
                     color: Colors.black,
                     child: TextField(
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                          RegExp(r'^\d+\.?\d{0,2}?$'),
+                        ),
+                      ],
+                      keyboardType:
+                          TextInputType.numberWithOptions(decimal: true),
                       decoration: InputDecoration(
                         hintText: 'Enter Value',
                         hintStyle: TextStyle(color: Colors.grey[300]),
@@ -79,6 +87,13 @@ class HomePage extends StatelessWidget {
                   child: Container(
                     color: Colors.black,
                     child: TextField(
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                          RegExp(r'^\d+\.?\d{0,2}?$'),
+                        ),
+                      ],
+                      keyboardType:
+                          TextInputType.numberWithOptions(decimal: true),
                       decoration: InputDecoration(
                         hintText: 'Enter Value',
                         hintStyle: TextStyle(color: Colors.grey[300]),
