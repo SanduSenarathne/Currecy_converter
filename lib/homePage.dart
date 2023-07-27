@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+  final TextEditingController usdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,7 @@ class HomePage extends StatelessWidget {
                   child: Container(
                     color: Colors.black,
                     child: TextField(
+                      controller: usdController,
                       inputFormatters: [
                         FilteringTextInputFormatter.allow(
                           RegExp(r'^\d+\.?\d{0,2}?$'),
@@ -61,7 +64,6 @@ class HomePage extends StatelessWidget {
                         fillColor: Colors.black,
                       ),
                       style: TextStyle(color: Colors.white),
-                      // Implement additional text field properties as needed
                     ),
                   ),
                 ),
@@ -125,7 +127,8 @@ class HomePage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    print(' convert USD to Rs.');
+                    String usdValue = usdController.text;
+                    print('USD value: $usdValue');
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
