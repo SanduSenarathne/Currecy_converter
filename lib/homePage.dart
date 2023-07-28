@@ -5,6 +5,7 @@ import 'function.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
+
   final TextEditingController usdController = TextEditingController();
   final TextEditingController slrController = TextEditingController();
 
@@ -43,7 +44,7 @@ class HomePage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Container(height: 20),
+            Container(height: 50),
             Row(
               children: [
                 Expanded(
@@ -140,7 +141,10 @@ class HomePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  child: Text('USD --> Rs.'),
+                  child: Text(
+                    'Convert USD to SLR',
+                    style: TextStyle(fontSize: 13),
+                  ),
                 ),
                 SizedBox(width: 16),
                 ElevatedButton(
@@ -156,7 +160,10 @@ class HomePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                  child: Text('Rs. --> USD'),
+                  child: Text(
+                    'Convert SLR to USD',
+                    style: TextStyle(fontSize: 13),
+                  ),
                 ),
               ],
             )
