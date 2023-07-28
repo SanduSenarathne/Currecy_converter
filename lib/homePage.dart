@@ -130,6 +130,7 @@ class HomePage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     CurrencyConverter.convertToLKR(usdController.text);
+                    slrController.text = CurrencyConverter.results.value;
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
@@ -145,6 +146,7 @@ class HomePage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     CurrencyConverter.convertToUSD(slrController.text);
+                    usdController.text = CurrencyConverter.results.value;
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
