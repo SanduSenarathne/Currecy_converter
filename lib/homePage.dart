@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
+//import 'package:get/get.dart';
 import 'function.dart';
 
 class HomePage extends StatelessWidget {
@@ -67,6 +67,10 @@ class HomePage extends StatelessWidget {
                         fillColor: Colors.black,
                       ),
                       style: TextStyle(color: Colors.white),
+                      onChanged: (value) {
+                        CurrencyConverter.convertToLKR(value);
+                        slrController.text = CurrencyConverter.results.value;
+                      },
                     ),
                   ),
                 ),
@@ -107,6 +111,10 @@ class HomePage extends StatelessWidget {
                         fillColor: Colors.black,
                       ),
                       style: TextStyle(color: Colors.white),
+                      onChanged: (value) {
+                        CurrencyConverter.convertToUSD(value);
+                        usdController.text = CurrencyConverter.results.value;
+                      },
                     ),
                   ),
                 ),
@@ -124,8 +132,8 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            Container(height: 30),
-            Row(
+            //Container(height: 30),
+            /*Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
@@ -166,7 +174,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            )*/
           ],
         ),
       ),
